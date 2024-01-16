@@ -7,7 +7,6 @@ while true; do
         cat /tmp/ips_fails | sort | uniq -c | awk '$1 > 2 {print $2}' > /tmp/toips_block
 
         for i in $(cat /tmp/toips_block);do
-                echo $i
                 if grep -q "$i" /tmp/ips_ja_bloqueado; then
                         echo "IP $i ja bloqueado"
                 else
